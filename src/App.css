@@ -1,0 +1,144 @@
+:root {
+    --primary-bg: linear-gradient(135deg, #1e0533, #110a1f);
+    --accent-color: #8a2be2;
+    --text-color: #ffffff;
+    --text-secondary: #b3b3b3;
+    --gradient-1: linear-gradient(45deg, #726bff, #57b6fe);
+    --gradient-2: linear-gradient(45deg, #8a2be2, #4b0082);
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+    background-color: #110a1f;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #fcaa18;
+    border-radius: 50px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+body {
+    font-family: "inter", sans-serif;
+}
+
+.bg-primary {
+    background-image: var(--primary-bg);
+}
+
+.bg-gradient-1 {
+    background-image: var(--gradient-1);
+}
+
+.bg-gradient-2 {
+    background-image: var(--gradient-2);
+}
+
+.bg-accent {
+    background-color: var(--accent-color);
+}
+
+.text-accent {
+    color: var(--accent-color);
+}
+
+.text-primary {
+    color: var(--text-color);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+.highlight {
+    background: linear-gradient(to right,
+            #8a2be2, #726bff, #57b6fe, #8a2be2);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    animation: background-span 3s linear infinite;
+}
+
+@keyframes background-span {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+}
+
+.blob {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-image: radial-gradient(800px circle at 100px 100px,
+            rgba(255, 255, 255, 0.159),
+            rgba(255, 255, 255, 0.059),
+            transparent 70%);
+    filter: blur(30px);
+    background-color: #e0e0e005;
+    position: relative;
+
+    animation: spin 10s linear infinite, morph 5s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) translate(-50%, -50%);
+    }
+
+    100% {
+        transform: rotate(360deg) translate(-50%, -50%);
+    }
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 50%;
+        transform: scale(.95) translate(-50%, -50%);
+    }
+
+    25% {
+        border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+        transform: scale(1) translate(-50%, -50%);
+    }
+
+    50% {
+        border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%;
+        transform: scale(.95) translate(-50%, -50%);
+    }
+
+    75% {
+        border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%;
+        transform: scale(1) translate(-50%, -50%);
+    }
+
+    100% {
+        border-radius: 50%;
+    }
+}
+
+
+.star {
+    animation: scale 1s linear infinite;
+}
+
+@keyframes scale {
+
+    from,
+    to {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1) rotate(180deg);
+    }
+}
